@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Parisienne";
+    src: url(./Parisienne/Parisienne-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+};
+
+@font-face {
+    font-family: "Istok_Web";
+    src: url(./Istok_Web/IstokWeb-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+};
+

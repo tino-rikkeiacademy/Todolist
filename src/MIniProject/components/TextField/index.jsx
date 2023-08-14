@@ -58,7 +58,7 @@ export default function BasicTextFields({ state, handleChange }) {
           onChange={handleChange}
         />
       </Search>
-      {/* <input className="text-black" type="text" value={state} onChange={handleChange} /> */}
+      <input className="text-black" type="text" value={state} onChange={handleChange} />
     </div>
   );
 }

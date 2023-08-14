@@ -39,7 +39,7 @@ function List({listData , handleEdit, handleDelete, handleCheck}) {
                       variant="contained"
                       startIcon={<EditIcon />}
                       sx={{ height: "30px", m: 2 }} 
-                      onClick={() => handleEdit(item,index)}
+                      onClick={() => handleEdit(item)}
                     >
                       EDIT
                     </Button>

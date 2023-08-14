@@ -9,9 +9,8 @@ function MiniProject() {
   const listData = JSON.parse(localStorage.getItem('todoList')) || [];
   const [selectedData, setSelectedData] = useState('');
   const [isEdit, setIsEdit] = useState(false);
-  const [editData, setEditData] = useState()
+  
   const handleChange = (e) => {
-    // e.preventDefault();
     setState(e.target.value);
   } 
 
@@ -20,12 +19,11 @@ function MiniProject() {
     localStorage.setItem('todoList', JSON.stringify(newData) );
   }
 
-  const handleEdit = (item,index) => {
-    listData.splice(index,1, {job : state ,check : item.check });
-    let newData = listData;
-    setSelectedData(item.job)
-    setIsEdit(true)
-    setEditData(newData)
+  const handleEdit = (item) => {
+    // listData.splice(index,1, {job : state ,check : item.check });
+    // let newData = listData;
+    setSelectedData(item.job);
+    setIsEdit(true);
     // localStorage.setItem('todoList', JSON.stringify(newData) );
   }
 
@@ -47,7 +45,7 @@ function MiniProject() {
 
   return (
     <div>
-        <Header state={state} editData={editData} handleChange={handleChange} handleEdit={handleEdit}  handleAdd={handleAdd} isEdit={isEdit} />
+        <Header state={state} listData={listData}  handleChange={handleChange} handleEdit={handleEdit}  handleAdd={handleAdd} isEdit={isEdit} />
         <List listData={listData} handleEdit={handleEdit} handleDelete={handleDelete} handleCheck={handleCheck}/>
     </div>
   )

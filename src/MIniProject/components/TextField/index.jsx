@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 // import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled, alpha } from "@mui/material/styles";
 import ListIcon from "@mui/icons-material/List";
-import InputBase from '@mui/material/InputBase';
+import InputBase from "@mui/material/InputBase";
 
-export default function BasicTextFields() {
+export default function BasicTextFields({ state, handleChange }) {
+
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -45,14 +47,18 @@ export default function BasicTextFields() {
   }));
 
   return (
-    <Search>
-      <SearchIconWrapper>
-        <ListIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        placeholder="New Text"
-        inputProps={{ "aria-label": "search" }}
-      />
-    </Search>
+    <div>
+      <Search>
+        <SearchIconWrapper>
+          <ListIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="New Text"
+          value={state}          
+          onChange={handleChange}
+        />
+      </Search>
+      {/* <input className="text-black" type="text" value={state} onChange={handleChange} /> */}
+    </div>
   );
 }

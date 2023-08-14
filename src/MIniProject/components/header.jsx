@@ -6,10 +6,12 @@ import EditIcon from '@mui/icons-material/Edit';
 
 function Header({ state, handleChange, handleAdd, isEdit, listData }) {
   console.log('state',state)
+
   const onEdit = () => {
     const index = listData.findIndex(item => item.job == state)
     listData.splice(index ,1, {job : state ,check : false });
     localStorage.setItem('todoList', JSON.stringify(listData) );
+    location.reload();
   }
 
   return (

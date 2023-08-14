@@ -6,10 +6,10 @@ import List from "./components/list"
 
 function MiniProject() {
   const [state, setState] = useState('');
-  const listData = JSON.parse(localStorage.getItem('todoList')) || [];
   const [selectedData, setSelectedData] = useState('');
   const [isEdit, setIsEdit] = useState(false);
-  
+  const listData = JSON.parse(localStorage.getItem('todoList')) || [];
+
   const handleChange = (e) => {
     setState(e.target.value);
   } 
@@ -17,31 +17,32 @@ function MiniProject() {
   const handleAdd = (item) => {
     let newData = [...listData, {job : item ,check : false}]
     localStorage.setItem('todoList', JSON.stringify(newData) );
+    location.reload();
   }
 
   const handleEdit = (item) => {
-    // listData.splice(index,1, {job : state ,check : item.check });
-    // let newData = listData;
     setSelectedData(item.job);
     setIsEdit(true);
-    // localStorage.setItem('todoList', JSON.stringify(newData) );
   }
 
   const handleDelete = (index) => {
     listData.splice(index,1);
     let newData = listData
     localStorage.setItem('todoList', JSON.stringify(newData) );
+    location.reload();
   }
 
   const handleCheck = (index,item) => {
     listData.splice(index,1, {job : item.job, check : !item.check});
     let newData = listData
     localStorage.setItem('todoList', JSON.stringify(newData) );
+    location.reload();
   }
 
   useEffect(() =>{
     setState(selectedData)
   },[selectedData])
+
 
   return (
     <div>
